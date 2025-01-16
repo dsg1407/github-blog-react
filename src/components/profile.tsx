@@ -1,4 +1,9 @@
-import { FaBuilding, FaGithub, FaUserGroup } from 'react-icons/fa6'
+import {
+  FaBuilding,
+  FaGithub,
+  FaUpRightFromSquare,
+  FaUserGroup,
+} from 'react-icons/fa6'
 import { Link } from './link'
 
 export function Profile() {
@@ -16,7 +21,9 @@ export function Profile() {
             <h1 className="text-2xl font-bold leading-[130%] text-base-title my-2">
               Rocketseat Education
             </h1>
-            <Link description="GitHub" href="/" target="_blank" />
+            <Link href="/" target="_blank">
+              Github <FaUpRightFromSquare className="leading-[0]" />
+            </Link>
           </div>
           <p className="">
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
