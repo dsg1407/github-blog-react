@@ -1,19 +1,61 @@
+import { useContext, useEffect, useState } from 'react'
+import { api } from '../lib/axios'
+import { useParams } from 'react-router-dom'
+import { repoContext } from '../contexts/repo-context'
+
 import { IssueHeader } from '../components/issue-header'
 
+interface IssueInfoProps {
+  number: number
+  title: string
+  user: {
+    login: string
+  }
+  created_at: string
+  html_url: string
+  body: string
+  comments: number
+}
+
 export function Issue() {
+  const [issue, setIssue] = useState({} as IssueInfoProps)
+
+  const { userName, repoName } = useContext(repoContext)
+  const { id } = useParams()
+
+  async function fetchIssuesInfo(id: string) {
+    try {
+      const data = (
+        await api.get(`/repos/${userName}/${repoName}/issues/${id}`)
+      ).data as IssueInfoProps
+
+      setIssue(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    if (id) {
+      fetchIssuesInfo(id)
+    }
+  }, [id])
+
   return (
     <div className="mx-auto max-w-[864px] -mt-[88px] px-2 md:px-0">
-      <IssueHeader />
-      <article className="py-10 px-8">
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn. Dynamic typing
-        JavaScript is a loosely typed and dynamic language. Variables in
-        JavaScript are not directly associated with any particular value type,
-        and any variable can be assigned (and re-assigned) values of all types:
-      </article>
+      {issue.title && (
+        <>
+          <IssueHeader
+            title={issue.title}
+            comments={issue.comments}
+            login={issue.user.login}
+            created_at={issue.created_at}
+            git_url={issue.html_url}
+          />
+          <article className="py-10 px-8">{issue.body}</article>
+        </>
+      )}
     </div>
   )
 }
