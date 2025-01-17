@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { repoContext } from '../contexts/repo-context'
 
 import { IssueHeader } from '../components/issue-header'
+import { MarkdownContent } from '../components/markdown-content'
 
 interface IssueInfoProps {
   number: number
@@ -53,7 +54,9 @@ export function Issue() {
             created_at={issue.created_at}
             git_url={issue.html_url}
           />
-          <article className="py-10 px-8">{issue.body}</article>
+          <article className="py-10 px-8">
+            <MarkdownContent body={issue.body} />
+          </article>
         </>
       )}
     </div>
