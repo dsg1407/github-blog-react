@@ -12,7 +12,7 @@ export function Card({ title, date, description, ...rest }: CardProps) {
       className="p-8 flex flex-col gap-5 bg-base-post border-2 border-base-post rounded-[10px] hover:transition-all hover:duration-300 hover:border-base-label cursor-pointer"
       {...rest}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-between gap-4">
         <h3 className="text-base-title font-bold text-xl text-pretty">
           {title}
         </h3>
