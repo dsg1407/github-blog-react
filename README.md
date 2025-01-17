@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img alt="Logo"src="./public/favicon.svg" width="35px"/>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">Github Blob</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  A blog to search about issues in a repository
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-packages">Packages</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#author">Author</a>
+</p>
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img alt="ReactJS Badge" src="https://img.shields.io/badge/ReactJS-blue"/>
+  <img alt="Typescript Badge" src="https://img.shields.io/badge/Typescript-blue"/>
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000"/>
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<br>
 
-- Configure the top-level `parserOptions` property like this:
+<p align="center">
+  <img alt="App Screen" src="./src/assets/Cover.png" width="100%">
+</p>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Technologies
+
+Here are the technologies used in this project.
+
+- TypeScript 5.6.2
+- ReactJS 18.3.1
+- Vite 6.0.5
+
+---
+
+## 📦 Packages
+
+Here are the packages used in this project.
+
+- react-icons -> A library with various icon providers for react.
+- react-router-dom -> A user‑obsessed, standards‑focused, multi‑strategy router you can deploy anywhere.
+- tailwind-css -> An open-source CSS framework that allows developers to create custom designs for websites.
+- react-markdown -> A React component to render markdown.
+- date-fns -> A library that provides a toolset for manipulating JavaScript dates in a browser & Node.js.
+- axios -> A library that allows developers to make HTTP requests from a web browser or Node.js.
+
+---
+
+## 💻 Getting started
+
+Here are the commands and steps on how to start the project.
+
+**Dependency**
+
+- NodeJS
+- NPM (Package manager of your choice)
+
+---
+
+Install the dependencies using a package manager, the one used in the project was NPM.
+
+```
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+To start the project on your machine using NPM.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm run dev
+```
+
+To build the project using NPM.
+
+```
+npm run build
+```
+
+To run the project in production using NPM.
+
+```
+npm run start
+```
+
+---
+
+## Author
+
+Made with ♥ by Daniel Gonçalves 🚀 [dsg1407](https://github.com/dsg1407)
