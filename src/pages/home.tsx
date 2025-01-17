@@ -71,28 +71,32 @@ export function Home() {
 
   return (
     <div className="mx-auto max-w-[864px] -mt-[88px] px-2 md:px-0">
-      <Profile user={user} />
-      <main className="mt-[72px] flex flex-col gap-12 pb-36">
-        <SearchBar
-          title="Publicações"
-          publishNumber={issuesFiltered.length}
-          placeholder="Buscar conteúdo"
-          setFiltered={setFilter}
-        />
-        <section className="grid grid-cols-2 gap-8">
-          {issuesFiltered.map((issue) => {
-            return (
-              <Card
-                key={issue.number}
-                title={issue.title}
-                date={issue.created_at}
-                description={issue.body}
-                href={`/issue/${issue.number}`}
-              />
-            )
-          })}
-        </section>
-      </main>
+      {user.name && (
+        <>
+          <Profile user={user} />
+          <main className="mt-[72px] flex flex-col gap-12 pb-36">
+            <SearchBar
+              title="Publicações"
+              publishNumber={issuesFiltered.length}
+              placeholder="Buscar conteúdo"
+              setFiltered={setFilter}
+            />
+            <section className="grid grid-cols-2 gap-8">
+              {issuesFiltered.map((issue) => {
+                return (
+                  <Card
+                    key={issue.number}
+                    title={issue.title}
+                    date={issue.created_at}
+                    description={issue.body}
+                    href={`/issue/${issue.number}`}
+                  />
+                )
+              })}
+            </section>
+          </main>
+        </>
+      )}
     </div>
   )
 }
