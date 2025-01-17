@@ -21,5 +21,5 @@ export default {
       'cover-pattern': "url('/cover-bg.svg')",
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
