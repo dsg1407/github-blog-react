@@ -1,12 +1,17 @@
 interface SearchBarProps extends React.HTMLProps<HTMLInputElement> {
   title: string
   publishNumber: number
-  // setFiltered: () => void
+  setFiltered: (newFilter: string) => void
 }
 
-export function SearchBar({ title, publishNumber, ...rest }: SearchBarProps) {
+export function SearchBar({
+  title,
+  publishNumber,
+  setFiltered,
+  ...rest
+}: SearchBarProps) {
   function handleTextChanged(newText: string) {
-    console.log(newText)
+    setFiltered(newText)
   }
 
   return (
